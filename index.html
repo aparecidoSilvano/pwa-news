@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/teste.css">
 </head>
 
 <body>
@@ -24,25 +25,33 @@
             </button>
 
             <div class="collapse navbar-collapse float-right" id="navbarsExample05">
-                <form class="col-lg-10 col-md-8 col-sm-8">
+                <form class="form">
                     <input type="text" class="form-control" aria-describedby="sizing-addon1" placeholder="Buscar">
                 </form>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tópicos</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <a class="dropdown-item" href="#">Saúde</a>
-                            <a class="dropdown-item" href="#">Esportes</a>
-                            <a class="dropdown-item" href="#">Entretenimento</a>
-                            <a class="dropdown-item" href="#">Tecnologia</a>
+                            <a id="health" class="dropdown-item" href="#">Saúde</a>
+                            <a id="sports" class="dropdown-item" href="#">Esportes</a>
+                            <a id="entertainment" class="dropdown-item" href="#">Entretenimento</a>
+                            <a id="technology" class="dropdown-item" href="#">Tecnologia</a>
                         </div>
                     </li>
-                </ul>                
+                </ul>
             </div>
         </div>
     </nav>
 
-    
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div id="news" class="row"></div>
+        </div>
+    </div>
+
+    <!--
+        TODO 
+
     <div class="container">
         <div id="top-news" class="row jumbotron p-3 p-md-5 text-white rounded bg-dark" style="margin-left: 20px; margin-right: 20px">
             <div class="col-12 col-sm-6 px-0">
@@ -53,23 +62,27 @@
                 </p>
             </div>
             <div class="col-12 col-sm-6 px-0">
-                    <img id="top-news-image" src="#"/>
+                <img id="top-news-image" src="#" />
             </div>
         </div>
-        <div id="news" class="row" style="margin-left: 20px; margin-right: 20px"></div>
-    </div>
+    </div> -->
 
     <footer>
         <p>PWA NEWS - Version: 0.1.1</p>
     </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <script src="library/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
     <script src="library/moment.min.js"></script>
     <script src="js/api.js"></script>
 </body>

@@ -93,14 +93,15 @@
     }
 
     function getNewsHtml(article) {
-
-        var card = $('<div>').addClass('card col-lg-4 col-xs-12');
+        var card = $('<div>').addClass('card mb-4 box-shadow');
 
         card = addImage(card);
         card = addBodyTitle(card);
         card = addBodyActions(card);
 
-        return card;
+        var container = $('<div>').addClass('col-xs-12 col-md-6 col-lg-4');
+        container.append(card);
+        return container;
 
         function addImage(card) {
             if (article.urlToImage) {
@@ -119,9 +120,9 @@
                 $('<div>')
                     .addClass('card-body')
                     .append($('<h5>').addClass('card-title').append(article.title))
-                    .append($('<h6>').addClass('card-subtitle mb-2 text-muted')
-                        .append(moment(article.publishedAt).fromNow()))
                     .append($('<p>').addClass('card-text').append(article.description))
+                    .append($('<h6>').addClass('card-subtitle mb-2 text-muted')
+                    .append(moment(article.publishedAt).fromNow()))
             );
         }
 

@@ -31,8 +31,9 @@ button.btn .btn-link {
 }
 
 img {
-    max-height: 100%;
-    max-width: 100%;
+    height: 225px;
+    width: 100%;
+    display: block;
 }
 
 button {
