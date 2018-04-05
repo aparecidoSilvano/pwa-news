@@ -81,6 +81,16 @@
         crossorigin="anonymous"></script>
     <script src="library/moment.min.js"></script>
     <script src="js/api.js"></script>
+    <script>
+        if('serviceWorker' in navigator){
+                navigator.serviceWorker.register('sw-pwa-news.js')
+                .then(function(registration){
+                        console.log("Registrado com escope", registration)
+                }).catch(function(error){
+                    Console.error(error);
+                })
+        }
+    </script>
 </body>
 
 </html>
