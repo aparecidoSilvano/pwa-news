@@ -42,7 +42,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="container bg-light">
         <div id="top-news" class="row jumbotron p-3 p-md-5 text-white rounded bg-dark" style="margin-left: 20px; margin-right: 20px">
             <div class="col-12 col-sm-6 px-0">
@@ -57,11 +57,11 @@
             </div>
         </div>
         <div class="album py-5 bg-light">
-        <div class="container">
-            <div id="news" class="row"></div>
+            <div class="container">
+                <div id="news" class="row"></div>
+            </div>
         </div>
     </div>
-    </div> 
 
     <footer>
         <p>PWA NEWS - Version: 0.1.1</p>
@@ -81,12 +81,13 @@
         crossorigin="anonymous"></script>
     <script src="library/moment.min.js"></script>
     <script src="js/api.js"></script>
+
     <script>
-        if('serviceWorker' in navigator){
-                navigator.serviceWorker.register('sw-pwa-news.js')
-                .then(function(registration){
-                        console.log("Registrado com escope", registration)
-                }).catch(function(error){
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw-pwa-news.js')
+                .then(function (registration) {
+                    console.log("Registrado com escope", registration)
+                }).catch(function (error) {
                     Console.error(error);
                 })
         }
