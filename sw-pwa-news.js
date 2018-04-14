@@ -10,6 +10,7 @@
         '/library/jquery-3.3.1.min.js',
         '/library/moment.min.js'
     ];
+    
     self.addEventListener('install', function (event) {
         event.waitUntil(
             self.caches.open(CACHE_SHELL).then(function (cache) {
@@ -17,6 +18,7 @@
             })
         )
     });
+    
     self.addEventListener('activate', function (event) {
         var cacheList = [CACHE_SHELL, CACHE_DATA];
         return event.waitUntil(
@@ -28,7 +30,8 @@
                 }))
             })
         )
-    })
+    });
+
     self.addEventListener('fetch', function (event) {
         if (event.request.url.indexOf(API) === -1) {
             event.respondWith(
@@ -55,6 +58,5 @@
             )
         }
     })
-
 
 }());
