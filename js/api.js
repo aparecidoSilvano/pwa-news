@@ -20,6 +20,31 @@
 
     console.log('share disponibility: ' + hasShareFunctionality);
 
+// funcionalidade de pegar a localização https://whatwebcando.today/geolocation.html
+var target = document.getElementById('target');
+var watchId;
+
+function appendLocation(location, verb) {
+  verb = verb || 'updated';
+  var newLocation = document.createElement('p');
+   console.log('Location ' + verb + 
+   ': <a href="https://maps.google.com/maps?&z=15&q=' 
+   + location.coords.latitude + '+' + location.coords.longitude 
+   + '&ll=' + location.coords.latitude + '+' + location.coords.longitude 
+   + '" target="_blank">' + location.coords.latitude + ', ' + location.coords.longitude + '</a>');
+}
+
+if ('geolocation' in navigator) {
+  document.getElementById('askButton').addEventListener('click', function () {
+    navigator.geolocation.getCurrentPosition(function (location) {
+      appendLocation(location, 'fetched');
+    });
+    watchId = navigator.geolocation.watchPosition(appendLocation);
+  });
+} else {
+    console.log('Geolocation API not supported.');
+}
+
     getNews();
 
     function getNews() {
