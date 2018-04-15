@@ -6,7 +6,7 @@
 
     if ('serviceWorker' in navigator && 'PushManager' in window) {
         window.addEventListener('load', function () {
-            navigator.serviceWorker.register('sw-news-push.js').then(function (swRegister) {
+            navigator.serviceWorker.register('sw-push-notification.js').then(function (swRegister) {
 
                 swPush = swRegister;
                 console.log('Notification service worker is registered', swRegister);
