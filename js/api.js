@@ -9,6 +9,17 @@
     var ENDPOINT_EVERYTHING = 'everything?';
     var API_KEY = 'apiKey=c5a59e6e745f45849e2e56af4efad07d';
 
+    var hasShareFunctionality;
+
+    // Sobre funcionalidade de 'share' https://whatwebcando.today/app-communication.html
+    if ('share' in navigator) {
+        hasShareFunctionality = true;
+    } else {
+        hasShareFunctionality = false;
+    }
+
+    console.log('share disponibility: ' + hasShareFunctionality);
+
     getNews();
 
     function getNews() {
@@ -24,14 +35,14 @@
     function success(data) {
         var divNews = $('#news');
         divNews.empty();
-        setTopNews( data.articles[0]);
+        setTopNews(data.articles[0]);
         for (var i = 1; i < data.articles.length; ++i) {
             divNews.append(getNewsHtml(data.articles[i]));
         }
     }
 
     function setTopNews(article) {
-        if(article) {
+        if (article) {
             $('#top-news-title').text(article.title);
             $('#top-news-description').text(article.description);
             $('#top-news-image').attr('src', article.urlToImage).attr('alt', article.title);
@@ -107,9 +118,9 @@
             if (article.urlToImage) {
                 return card.append(
                     $('<img>')
-                        .attr('src', article.urlToImage)
-                        .attr('alt', article.title)
-                        .addClass('card-img-top')
+                    .attr('src', article.urlToImage)
+                    .attr('alt', article.title)
+                    .addClass('card-img-top')
                 );
             }
             return card;
@@ -118,10 +129,10 @@
         function addBodyTitle(card) {
             return card.append(
                 $('<div>')
-                    .addClass('card-body')
-                    .append($('<h5>').addClass('card-title').append(article.title))
-                    .append($('<p>').addClass('card-text').append(article.description))
-                    .append($('<h6>').addClass('card-subtitle mb-2 text-muted')
+                .addClass('card-body')
+                .append($('<h5>').addClass('card-title').append(article.title))
+                .append($('<p>').addClass('card-text').append(article.description))
+                .append($('<h6>').addClass('card-subtitle mb-2 text-muted')
                     .append(moment(article.publishedAt).fromNow()))
             );
         }
@@ -129,11 +140,24 @@
         function addBodyActions(card) {
             return card.append(
                 $('<div>')
-                    .addClass('card-body')
-                    .append($('<button>').append('Read Article').addClass('btn btn-link').attr('type', 'button'))
+                .addClass('card-body')
+                .append($('<button>').append('Read Article').addClass('btn btn-link').attr('type', 'button')
                     .click(function () {
                         window.open(article.url, '_blank');
+                    }))
+                .append(
+                    $('<button>').addClass('btn btn-light')
+                    .prop("disabled", !hasShareFunctionality)
+                    .click(function () {
+                        navigator.share({
+                                title: article.title,
+                                text: article.description,
+                                url: article.url
+                            })
+                            .then(() => console.log('Successful share'))
+                            .catch(error => console.log('Error sharing', error))
                     })
+                    .append($('<i>').addClass('fas fa-share-alt')))
             );
         }
     }
