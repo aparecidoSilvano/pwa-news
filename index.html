@@ -96,21 +96,10 @@
         crossorigin="anonymous"></script>
     <script src="library/moment.min.js"></script>
 
+    <script src="sw-pwa-news.js"></script>
     <script src="js/api.js"></script>
     <script src="js/install-banner.js"></script>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw-pwa-news.js')
-                .then(function (registration) {
-                    console.log("Registrado com escope", registration)
-                }).catch(function (error) {
-                    Console.error(error);
-                })
-        }
-    </script>
-
-    <script src="sw-push-notification.js"></script>
     <!-- Como acessar o app de outro dispositivo, estando servindo pelo web server for chrome https://github.com/kzahel/web-server-chrome/issues/58 -->
 </body>
 
