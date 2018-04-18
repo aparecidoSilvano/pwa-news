@@ -168,7 +168,7 @@ if ('geolocation' in navigator) {
                 .addClass('card-body')
                 .append($('<button>').append('Read Article').addClass('btn btn-link').attr('type', 'button')
                     .click(function () {
-                        window.open(article.url, '_blank');
+                        window.open(article.url, '_blank', 'noopener');
                     }))
                 .append(
                     $('<button>').addClass('btn btn-light')
