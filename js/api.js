@@ -171,7 +171,8 @@ if ('geolocation' in navigator) {
                         window.open(article.url, '_blank', 'noopener');
                     }))
                 .append(
-                    $('<button>').addClass('btn btn-light')
+                    $('<button>').addClass('btn btn-default')
+                    .attr('aria-label', 'compartilhar')
                     .prop("disabled", !hasShareFunctionality)
                     .click(function () {
                         navigator.share({
