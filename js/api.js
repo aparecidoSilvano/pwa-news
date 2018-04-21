@@ -143,9 +143,10 @@ if ('geolocation' in navigator) {
             if (article.urlToImage) {
                 return card.append(
                     $('<img>')
-                    .attr('src', article.urlToImage)
+                    .attr('src', '/images/image-default.png')
                     .attr('alt', article.title)
-                    .addClass('card-img-top')
+                    .attr('data-src', article.urlToImage)
+                    .addClass('lazy card-img-top')
                 );
             }
             return card;
